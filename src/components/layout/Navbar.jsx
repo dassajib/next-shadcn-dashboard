@@ -13,14 +13,17 @@ import { LogOut, Moon, Settings, Sun, User } from "lucide-react"
 import { Button } from "../ui/button"
 import { useTheme } from "next-themes"
 import Link from "next/link"
+import { SidebarTrigger } from "../ui/sidebar"
 
 const Navbar = () => {
     const { theme, setTheme } = useTheme()
 
     return (
         <div className="p-4 flex justify-between items-center">
-            collapse button
+            <SidebarTrigger className="cursor-pointer" />
+
             <Link href="/">Dashboard</Link>
+
             <div className="flex items-center gap-3">
                 <DropdownMenu>
                     <DropdownMenuTrigger asChild className="cursor-pointer">
