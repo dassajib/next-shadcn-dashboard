@@ -1,5 +1,6 @@
 "use client"
 
+import { useState } from "react"
 import {
     Calendar,
     ChevronDown,
@@ -26,6 +27,9 @@ import {
     SidebarMenuBadge,
     SidebarMenuButton,
     SidebarMenuItem,
+    SidebarMenuSub,
+    SidebarMenuSubButton,
+    SidebarMenuSubItem,
     SidebarSeparator,
 } from "../ui/sidebar"
 import {
@@ -34,9 +38,9 @@ import {
     DropdownMenuContent,
     DropdownMenuItem,
 } from "@/components/ui/dropdown-menu"
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "../ui/collapsible"
 import Image from "next/image"
 import Link from "next/link"
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "../ui/collapsible"
 
 // Menu items.
 const items = [
@@ -68,6 +72,9 @@ const items = [
 ]
 
 const AppSidebar = () => {
+
+    const [isOpen, setIsOpen] = useState(false)
+
     return (
         <Sidebar collapsible="icon">
             <SidebarHeader className="py-4">
@@ -86,6 +93,7 @@ const AppSidebar = () => {
             <SidebarSeparator />
 
             <SidebarContent>
+                {/* regular item */}
                 <SidebarGroup>
                     <SidebarGroupLabel>Application</SidebarGroupLabel>
                     <SidebarGroupContent>
@@ -112,6 +120,7 @@ const AppSidebar = () => {
                     </SidebarGroupContent>
                 </SidebarGroup>
 
+                {/* action item */}
                 <SidebarGroup>
                     <SidebarGroupLabel>Project</SidebarGroupLabel>
                     <SidebarGroupAction>
@@ -139,12 +148,15 @@ const AppSidebar = () => {
                     </SidebarGroupContent>
                 </SidebarGroup>
 
-                <Collapsible>
+                {/* collapsible item */}
+                <Collapsible open={isOpen} onOpenChange={setIsOpen}>
                     <SidebarGroup>
                         <SidebarGroupLabel asChild>
                             <CollapsibleTrigger>
                                 Collaps
-                                <ChevronDown className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-180 cursor-pointer" />
+                                <ChevronDown className={`ml-auto transition-transform cursor-pointer 
+                                    ${isOpen ? "rotate-180" : ""}`}
+                                />
                             </CollapsibleTrigger>
                         </SidebarGroupLabel>
                         <CollapsibleContent>
@@ -171,6 +183,38 @@ const AppSidebar = () => {
                         </CollapsibleContent>
                     </SidebarGroup>
                 </Collapsible>
+
+                {/* nested item */}
+                <SidebarGroup>
+                    <SidebarGroupLabel>Nested</SidebarGroupLabel>
+                    <SidebarGroupContent>
+                        <SidebarMenu>
+                            {/* Parent item */}
+                            <SidebarMenuItem>
+                                <SidebarMenuButton asChild>
+                                    <Link href="/" className="flex items-center gap-2">
+                                        <Projector size={18} />
+                                        <span>All Projects</span>
+                                    </Link>
+                                </SidebarMenuButton>
+                            </SidebarMenuItem>
+
+                            {/* Submenu section */}
+                            <div className="ml-6 mt-1">
+                                <SidebarMenu>
+                                    <SidebarMenuItem>
+                                        <SidebarMenuButton asChild>
+                                            <Link href="/" className="flex items-center gap-2 text-muted-foreground text-sm">
+                                                <Plus size={16} />
+                                                <span>Add</span>
+                                            </Link>
+                                        </SidebarMenuButton>
+                                    </SidebarMenuItem>
+                                </SidebarMenu>
+                            </div>
+                        </SidebarMenu>
+                    </SidebarGroupContent>
+                </SidebarGroup>
             </SidebarContent>
 
             <SidebarFooter>
