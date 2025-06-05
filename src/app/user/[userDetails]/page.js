@@ -21,6 +21,8 @@ import {
 } from "@/components/ui/sheet"
 import { Button } from "@/components/ui/button"
 import EditUser from "@/components/ui/EditUser"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import AppLineChart from "@/components/charts/AppLineChart"
 
 export default function UserDetails() {
     return (
@@ -130,8 +132,20 @@ export default function UserDetails() {
                 </div>
 
                 <div className="w-full md:w-2/3 space-y-6">
-                    <div className="bg-primary-foreground rounded-lg p-4">User Card</div>
-                    <div className="bg-primary-foreground rounded-lg p-4">Chart</div>
+                    <div className="bg-primary-foreground rounded-lg p-4">
+                        <div className="flex items-center gap-2">
+                            <Avatar size="12">
+                                <AvatarImage src="https://github.com/shadcn.png" />
+                                <AvatarFallback>SD</AvatarFallback>
+                            </Avatar>
+                            <h1 className="text-xl font-semibold">Sajib Das</h1>
+                        </div>
+                        <p className="text-sm text-muted-foreground mt-2">ncwuibfqiUBCQIBUcibciubcwiryfgvbse;iorhgbtnbanevuaiegte;anv;aenvaenvs</p>
+                    </div>
+                    <div className="bg-primary-foreground rounded-lg p-4">
+                        <h1 className="text-xl font-semibold">User Activity</h1>
+                        <AppLineChart />
+                    </div>
                 </div>
             </div>
         </div>
