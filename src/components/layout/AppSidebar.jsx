@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import {
+    Aperture,
     ChevronDown,
     ChevronUp,
     Home,
@@ -33,7 +34,6 @@ import {
     DropdownMenuItem,
 } from "@/components/ui/dropdown-menu"
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "../ui/collapsible"
-import Image from "next/image"
 import Link from "next/link"
 
 // Menu items.
@@ -66,7 +66,7 @@ const AppSidebar = () => {
                     <SidebarMenuItem>
                         <SidebarMenuButton asChild>
                             <Link href="/" className="flex items-center gap-2">
-                                <Image src="/logo.Default" alt="logo" width={30} height={30} />
+                                <Aperture />
                                 <span className="font-semibold">NEXT JS</span>
                             </Link>
                         </SidebarMenuButton>
