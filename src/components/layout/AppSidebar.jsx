@@ -65,7 +65,7 @@ const AppSidebar = () => {
                 <SidebarMenu>
                     <SidebarMenuItem>
                         <SidebarMenuButton asChild>
-                            <Link href="/" className="flex justify-between items-center gap-2">
+                            <Link href="/" className="flex items-center gap-2">
                                 <Image src="/logo.Default" alt="logo" width={30} height={30} />
                                 <span className="font-semibold">NEXT JS</span>
                             </Link>
