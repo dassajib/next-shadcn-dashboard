@@ -69,7 +69,7 @@ export default function UserDetails() {
                                 </HoverCardTrigger>
                                 <HoverCardContent>
                                     <h1 className="font-bold mb-2">Awarded</h1>
-                                    <p className="text-sm text-muted-foreground">This User is awarded for his contribution's</p>
+                                    <p className="text-sm text-muted-foreground">This User is awarded for his contributions</p>
                                 </HoverCardContent>
                             </HoverCard>
                             <HoverCard>
@@ -78,7 +78,7 @@ export default function UserDetails() {
                                 </HoverCardTrigger>
                                 <HoverCardContent>
                                     <h1 className="font-bold mb-2">Admin</h1>
-                                    <p className="text-sm text-muted-foreground">Admin User has all the access of the feature's</p>
+                                    <p className="text-sm text-muted-foreground">Admin User has all the access of the features</p>
                                 </HoverCardContent>
                             </HoverCard>
                             <HoverCard>
