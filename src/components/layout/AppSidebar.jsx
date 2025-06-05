@@ -2,7 +2,6 @@
 
 import { useState } from "react"
 import {
-    Calendar,
     ChevronDown,
     ChevronUp,
     Home,
@@ -10,8 +9,6 @@ import {
     Plus,
     PlusIcon,
     Projector,
-    Search,
-    Settings,
     User2,
 } from "lucide-react"
 import {
@@ -27,9 +24,6 @@ import {
     SidebarMenuBadge,
     SidebarMenuButton,
     SidebarMenuItem,
-    SidebarMenuSub,
-    SidebarMenuSubButton,
-    SidebarMenuSubItem,
     SidebarSeparator,
 } from "../ui/sidebar"
 import {
@@ -50,24 +44,14 @@ const items = [
         icon: Home,
     },
     {
+        title: "User",
+        url: "/user",
+        icon: User2,
+    },
+    {
         title: "Inbox",
         url: "/inbox",
         icon: Inbox,
-    },
-    {
-        title: "Calendar",
-        url: "/calendar",
-        icon: Calendar,
-    },
-    {
-        title: "Search",
-        url: "/search",
-        icon: Search,
-    },
-    {
-        title: "Settings",
-        url: "/settings",
-        icon: Settings,
     },
 ]
 
