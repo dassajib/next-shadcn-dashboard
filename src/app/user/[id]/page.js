@@ -1,4 +1,6 @@
-import CardList from "@/components/card/CardList"
+"use client"
+
+import { useParams } from "next/navigation"
 import { Badge } from "@/components/ui/badge"
 import {
     Breadcrumb,
@@ -23,8 +25,12 @@ import { Button } from "@/components/ui/button"
 import EditUser from "@/components/ui/EditUser"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import AppLineChart from "@/components/charts/AppLineChart"
+import CardList from "@/components/card/CardList"
 
 export default function UserDetails() {
+    const params = useParams()
+    const userId = params.id
+
     return (
         <div className="p-2">
             <Breadcrumb>
@@ -38,7 +44,7 @@ export default function UserDetails() {
                     </BreadcrumbItem>
                     <BreadcrumbSeparator />
                     <BreadcrumbItem>
-                        <BreadcrumbPage>Sajib Das</BreadcrumbPage>
+                        <BreadcrumbPage>User ID : {userId}</BreadcrumbPage>
                     </BreadcrumbItem>
                 </BreadcrumbList>
             </Breadcrumb>
@@ -103,8 +109,8 @@ export default function UserDetails() {
                                 <Progress value={77} />
                             </div>
                             <div className="flex items-center gap-2">
-                                <span className="font-bold">Username :</span>
-                                <span className="">Sajib Das</span>
+                                <span className="font-bold">User Id :</span>
+                                <span className="">{userId}</span>
                             </div>
                             <div className="flex items-center gap-2 mt-2">
                                 <span className="font-bold">Email :</span>
